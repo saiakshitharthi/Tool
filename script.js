@@ -1,4 +1,5 @@
 var edge_list_data = "";
+var imageContainer2 = document.getElementById("imageContainer");
 class Graph {
     constructor() {
         this.AdjList = new Map();
@@ -158,11 +159,17 @@ toggleedge.addEventListener('click', (event) => {
 })
 
 const download_coordinates = document.createElement("a");
+download_coordinates.classList.add("button-container");
+download_coordinates.style.width = "200px";
+download_coordinates.style.margin = "auto";
 document.body.appendChild(download_coordinates);
 download_coordinates.innerHTML = "Download Coordinates";
 
 
 const download_edge_list = document.createElement("a");
+download_edge_list.classList.add("button-container");
+download_edge_list.style.width = "200px";
+download_edge_list.style.margin = "auto";
 document.body.appendChild(download_edge_list);
 download_edge_list.innerHTML = "Download Edge list";
 function writeFile() {
@@ -193,8 +200,22 @@ function writeFile() {
     download_coordinates.download = "Coordinates.txt";
 }
 
-
-
-
-
-
+async function displayImage() {
+    var nameInput = document.getElementById("nameInput").value;
+    var imageContainer = document.getElementById("image");
+    
+    
+    var image = new Image();
+    image.onload = function() {
+      imageContainer.setAttribute("src",nameInput + ".jpg");
+    };
+    image.onerror = function() {
+        console.log("Error!");
+        imageContainer2.innerHTML = "Picture Not found!"
+        imageContainer.setAttribute("src","");
+      setTimeout(function() {
+      }, 3000);
+    };
+    image.src = nameInput + '.jpg';
+  }
+  

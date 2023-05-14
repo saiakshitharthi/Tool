@@ -12,8 +12,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
-        <script src="./queue.js" defer></script> 
-        <script src="./priorityqueue.js" defer></script> 
         <script src="./script.js" defer></script> 
         
     </head>
@@ -21,17 +19,19 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="myDiv">Click me</div>
+       
 
+            <input type="text" id="nameInput" placeholder="Enter name of the picture">
+            <button class="button_green" onclick="displayImage()">Submit</button>
+            <h1 id="imageContainer"></h1>
         <div id="playground">
-            <img src="Rawanapur.jpg" id="image" alt="">
+            <img src="" id="image" alt="">
         </div>
-        <div id="buttons">
 
-            <button id="toggleedge">Add Edge</button>
-          
+        <div class="button-container">
+            <button class="button" id="toggleedge">Add Edge</button>
+            <button  class="button" onclick="writeFile()">Write to File</button>
         </div>
-    
-        <button onclick="writeFile()">Write to File</button>
+        <br>
     </body>
 </html>
